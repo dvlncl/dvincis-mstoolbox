@@ -1,5 +1,10 @@
 # Dvinci's MSToolbox
 
+## What is Dvinci's MSToolbox?
+Dvinci's MSToolbox is a modular PowerShell toolkit designed for system telemetry, diagnostics, and reporting. It helps IT professionals and power users collect, analyze, and visualize key information about their Windows systems. The toolbox starts with the **Satellite** tool, which gathers detailed data on system configuration, network adapters, printers, and file path access, then generates a modern, interactive HTML report (with dark/light mode, search, and navigation features). The framework is built for easy expansion—new tools can be added as your needs grow, making this a future-proof solution for system insight and management.
+
+---
+
 Dvinci's MSToolbox is a modular collection of PowerShell tools for system telemetry, reporting, and future extensibility. Designed for IT professionals and enthusiasts, this toolbox provides a robust foundation for gathering and reporting on system, network, printer, and path access information, with a modern and user-friendly interface.
 
 ---
