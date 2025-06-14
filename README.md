@@ -2,6 +2,23 @@
 
 A comprehensive PowerShell-based system and network audit tool that collects detailed information about Windows systems and generates HTML reports.
 
+## Architecture
+
+The tool consists of two main components:
+
+1. `fuel.ps1` - Core Module
+   - Handles all prerequisite environment checks
+   - Manages PowerShell version and WMF requirements
+   - Provides core reporting functions
+   - Sets up execution environment
+   - Must be present for satellite.ps1 to function
+
+2. `satellite.ps1` - Main Audit Script
+   - Depends on fuel.ps1 for core functionality
+   - Performs system and network analysis
+   - Generates comprehensive HTML reports
+   - Requires administrative privileges
+
 ## Features
 
 - System Information Collection
@@ -30,9 +47,9 @@ A comprehensive PowerShell-based system and network audit tool that collects det
 - Windows PowerShell 5.1 or PowerShell 7+
 - Administrative privileges
 - Windows Management Framework 5.1 or later
-- `fuel.ps1` script (required for system analysis)
+- `fuel.ps1` script (core module)
 
-## Usage
+## Installation
 
 1. Clone the repository:
 ```powershell
@@ -44,25 +61,40 @@ git clone https://github.com/dvlncl/dvincis-mstoolbox.git
 cd dvincis-mstoolbox
 ```
 
-3. Ensure both scripts are present:
+3. Ensure both scripts are present in the same directory:
+   - `fuel.ps1` (core module)
    - `satellite.ps1` (main audit script)
-   - `fuel.ps1` (required system analysis script)
 
-4. Run the script with administrative privileges:
+## Usage
+
+Run the script with administrative privileges:
 ```powershell
 .\satellite.ps1
 ```
 
-The script will generate an HTML report on your desktop named "System_Network_Audit_Report.html".
+The script will:
+1. Load and initialize the core module (fuel.ps1)
+2. Perform prerequisite environment checks
+3. Execute system and network analysis
+4. Generate an HTML report on your desktop named "System_Network_Audit_Report.html"
 
 ## Scripts
 
-- `satellite.ps1`: Main system and network audit script
-- `fuel.ps1`: Required system analysis script that provides core functionality for satellite.ps1
+- `fuel.ps1`: Core module that provides:
+  - Environment validation
+  - Prerequisite checks
+  - Core reporting functions
+  - Execution environment setup
+
+- `satellite.ps1`: Main audit script that:
+  - Depends on fuel.ps1
+  - Performs system analysis
+  - Conducts network analysis
+  - Generates HTML reports
 
 ## Base64 Encoded Versions
 
-The repository includes base64 encoded versions of the scripts:
+The repository includes base64 encoded versions of both scripts:
 - `satellite.b64`
 - `fuel.b64`
 
