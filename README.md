@@ -8,16 +8,19 @@ The toolbox uses a navigation system inspired by Law's abilities:
 
 - `room` - Return to the main toolbox directory
 - `shambles [tool]` - Navigate to a specific tool
-- `scalpel` - List all available tools
+- `takt` - List all available tools
 
 ### Example Usage
 
 ```powershell
 # List all available tools
-scalpel
+takt
 
 # Navigate to satellite tool
 shambles satellite
+
+# Navigate to Orbital Inspector tool
+shambles orbitalInspector
 
 # Return to main toolbox
 room
@@ -28,7 +31,12 @@ room
 ### 🛰️ Satellite
 A comprehensive system and network audit tool that collects detailed information about Windows systems and generates HTML reports.
 
-[View Satellite Documentation](satellite/README.md)
+[View Satellite Documentation](tools/satellite/README.md)
+
+### 🛰️ Orbital Inspector
+A specialized tool for advanced system or network inspection.
+
+[View Orbital Inspector Documentation](tools/orbitalInspector/README.md)
 
 ## Architecture
 

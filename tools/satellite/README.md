@@ -70,5 +70,5 @@ id,type,target
 ## Navigation
 
 - Use `room` to return to the main toolbox
-- Use `scalpel` to see all available tools
+- Use `takt` to see all available tools
 - Use `shambles [tool]` to navigate to another tool 

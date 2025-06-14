@@ -19,7 +19,7 @@ function global:shambles {
     }
 }
 
-function global:scalpel {
+function global:takt {
     $tools = Get-ChildItem -Directory | Where-Object { $_.Name -ne ".git" }
     Write-Host "`nAvailable Tools:" -ForegroundColor Cyan
     Write-Host "----------------"
@@ -51,6 +51,6 @@ foreach ($file in $satelliteFiles) {
 }
 
 Write-Host "`nDvincis MS Toolbox initialized!" -ForegroundColor Green
-Write-Host "Use 'scalpel' to see available tools" -ForegroundColor Cyan
+Write-Host "Use 'takt' to see available tools" -ForegroundColor Cyan
 Write-Host "Use 'shambles [tool]' to navigate to a tool" -ForegroundColor Cyan
 Write-Host "Use 'room' to return to main directory" -ForegroundColor Cyan 
