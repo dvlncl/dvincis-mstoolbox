@@ -1,23 +1,50 @@
-# System and Network Audit Tool
+# Dvincis MS Toolbox 🏴‍☠️
 
-A comprehensive PowerShell-based system and network audit tool that collects detailed information about Windows systems and generates HTML reports.
+A collection of PowerShell tools for system administration and analysis, inspired by Trafalgar Law's abilities from One Piece.
+
+## Navigation System
+
+The toolbox uses a navigation system inspired by Law's abilities:
+
+- `room` - Return to the main toolbox directory
+- `shambles [tool]` - Navigate to a specific tool
+- `scalpel` - List all available tools
+
+### Example Usage
+
+```powershell
+# List all available tools
+scalpel
+
+# Navigate to satellite tool
+shambles satellite
+
+# Return to main toolbox
+room
+```
+
+## Available Tools
+
+### 🛰️ Satellite
+A comprehensive system and network audit tool that collects detailed information about Windows systems and generates HTML reports.
+
+[View Satellite Documentation](satellite/README.md)
 
 ## Architecture
 
-The tool consists of two main components:
+Each tool in the toolbox consists of two main components:
 
 1. `fuel.ps1` - Core Module
    - Handles all prerequisite environment checks
    - Manages PowerShell version and WMF requirements
    - Provides core reporting functions
    - Sets up execution environment
-   - Must be present for satellite.ps1 to function
+   - Must be present for tool functionality
 
-2. `satellite.ps1` - Main Audit Script
+2. Tool-specific script (e.g., `satellite.ps1`)
    - Depends on fuel.ps1 for core functionality
-   - Performs system and network analysis
-   - Generates comprehensive HTML reports
-   - Requires administrative privileges
+   - Performs specific tool operations
+   - Generates reports and outputs
 
 ## Features
 
@@ -48,7 +75,6 @@ The tool consists of two main components:
 - Windows PowerShell 5.1 or PowerShell 7+
 - Administrative privileges
 - Windows Management Framework 5.1 or later
-- `fuel.ps1` script (core module)
 
 ## Installation
 
@@ -62,10 +88,10 @@ git clone https://github.com/dvlncl/dvincis-mstoolbox.git
 cd dvincis-mstoolbox
 ```
 
-3. Ensure all required files are present in the same directory:
-   - `fuel.ps1` (core module)
-   - `satellite.ps1` (main audit script)
-   - `panels.csv` (network test configuration)
+3. Initialize the navigation system:
+```powershell
+.\init.ps1
+```
 
 ## Network Testing Configuration
 
