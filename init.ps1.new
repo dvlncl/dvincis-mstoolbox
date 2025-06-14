@@ -9,7 +9,7 @@ function global:shambles {
         [string]$Tool
     )
     
-    $toolPath = Join-Path $PSScriptRoot $Tool
+    $toolPath = Join-Path $PSScriptRoot "tools" $Tool
     if (Test-Path $toolPath) {
         Set-Location $toolPath
         Write-Host "Shambles! Moved to $Tool" -ForegroundColor Green
@@ -20,14 +20,20 @@ function global:shambles {
 }
 
 function global:takt {
-    $tools = Get-ChildItem -Directory | Where-Object { $_.Name -ne ".git" }
-    Write-Host "`nAvailable Tools:" -ForegroundColor Cyan
-    Write-Host "----------------"
-    foreach ($tool in $tools) {
-        Write-Host "📦 $($tool.Name)" -ForegroundColor Yellow
+    $toolsPath = Join-Path $PSScriptRoot "tools"
+    if (Test-Path $toolsPath) {
+        $tools = Get-ChildItem -Path $toolsPath -Directory
+        Write-Host "`nAvailable Tools:" -ForegroundColor Cyan
+        Write-Host "----------------"
+        foreach ($tool in $tools) {
+            Write-Host "[TOOL] $($tool.Name)" -ForegroundColor Yellow
+        }
+        Write-Host "`nUse 'shambles [tool]' to navigate to a tool" -ForegroundColor Gray
+        Write-Host "Use 'room' to return to main directory" -ForegroundColor Gray
     }
-    Write-Host "`nUse 'shambles [tool]' to navigate to a tool" -ForegroundColor Gray
-    Write-Host "Use 'room' to return to main directory" -ForegroundColor Gray
+    else {
+        Write-Host "Tools directory not found!" -ForegroundColor Red
+    }
 }
 
 # Create tools directory if it doesn't exist
