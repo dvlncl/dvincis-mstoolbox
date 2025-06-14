@@ -1,0 +1,32 @@
+# Directories
+learning/
+linux/
+
+# Generated reports
+*.html
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Backup files
+*.bak
+*~
+
+# Executables
+*.exe 
