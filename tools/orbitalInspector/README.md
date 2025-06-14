@@ -1,19 +1,24 @@
 # 🛰️ Orbital Inspector
 
-A specialized tool for advanced system or network inspection (customize this description as needed).
+A PowerShell tool for domain reconnaissance and inspection. Orbital Inspector gathers a wide range of information about a target domain, including DNS, SSL, email authentication, open ports, and more.
 
 ## Features
 
-- Deep system inspection
-- Network diagnostics
-- Customizable inspection modules
-- (Add more features as appropriate)
+- WHOIS lookup (requires `whois.exe`)
+- DNS record inspection (A, CNAME, MX, TXT, NS)
+- SPF, DKIM, and DMARC record checks
+- SSL certificate information (subject, issuer, validity, thumbprint)
+- HTTP header retrieval
+- Technology detection via server headers
+- Subdomain enumeration using crt.sh
+- Common port scan (21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 3389)
+- Website preview (opens in browser)
 
 ## Prerequisites
 
 - Windows PowerShell 5.1 or PowerShell 7+
-- Administrative privileges
-- Windows Management Framework 5.1 or later
+- Administrative privileges recommended
+- `whois.exe` (for WHOIS lookups; optional)
 
 ## Usage
 
@@ -22,12 +27,19 @@ A specialized tool for advanced system or network inspection (customize this des
 shambles orbitalInspector
 ```
 
-2. Run the script with administrative privileges:
+2. Run the script with a domain name:
 ```powershell
-.\orbital-nspector
+.\orbital-inspector -Domain example.com
 ```
 
-(Adjust the script name and usage as needed for your tool)
+The script will:
+- Display WHOIS info (if whois.exe is available)
+- Show DNS records and email authentication settings
+- Retrieve SSL certificate and HTTP header info
+- Detect server technology
+- Enumerate subdomains
+- Scan common ports
+- Optionally open the website in your browser
 
 ## Navigation
 
