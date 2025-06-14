@@ -133,11 +133,11 @@ foreach ($port in $ports) {
 # ------------------------
 # 9. Screenshot Website Preview (optional)
 # ------------------------
-Write-Host "`n[ Screenshot (Preview if browser available) ]"
-try {
-    Start-Process "https://$Domain"
-} catch {
-    Write-Host "Unable to open website preview in browser."
-}
+# Write-Host "`n[ Screenshot (Preview if browser available) ]"
+# try {
+#     Start-Process "https://$Domain"
+# } catch {
+#     Write-Host "Unable to open website preview in browser."
+# }
 
 Write-Host "`n✅ Orbital inspection complete."
