@@ -35,6 +35,7 @@ The tool consists of two main components:
   - Network adapter status
   - DNS settings
   - Network security
+  - Dynamic network testing using panels.csv
 
 - Report Generation
   - HTML-based reports
@@ -61,9 +62,27 @@ git clone https://github.com/dvlncl/dvincis-mstoolbox.git
 cd dvincis-mstoolbox
 ```
 
-3. Ensure both scripts are present in the same directory:
+3. Ensure all required files are present in the same directory:
    - `fuel.ps1` (core module)
    - `satellite.ps1` (main audit script)
+   - `panels.csv` (network test configuration)
+
+## Network Testing Configuration
+
+The `panels.csv` file defines network targets for testing. Each row specifies:
+- `id`: Unique identifier for the test
+- `type`: Type of network test (server, dns, printer, traceroute, gateway)
+- `target`: Target address or hostname (leave empty for gateway)
+
+Example configuration:
+```csv
+id,type,target
+1,server,192.168.1.1
+2,dns,8.8.8.8
+3,printer,192.168.1.100
+4,traceroute,google.com
+5,gateway,
+```
 
 ## Usage
 

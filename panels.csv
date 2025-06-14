@@ -1,0 +1,6 @@
+id,type,target
+1,server,192.168.1.1
+2,dns,8.8.8.8
+3,printer,192.168.1.100
+4,traceroute,google.com
+5,gateway, 
