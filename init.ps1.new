@@ -1,4 +1,4 @@
-# Create navigation functions
+# Navigation functions only - simplified
 function global:room {
     Set-Location $PSScriptRoot
 }
@@ -8,8 +8,7 @@ function global:shambles {
         [Parameter(Mandatory=$true)]
         [string]$Tool
     )
-    
-    $toolPath = Join-Path $PSScriptRoot "tools" $Tool
+    $toolPath = Join-Path (Join-Path $PSScriptRoot "tools") $Tool
     if (Test-Path $toolPath) {
         Set-Location $toolPath
         Write-Host "Shambles! Moved to $Tool" -ForegroundColor Green
@@ -23,12 +22,12 @@ function global:takt {
     $toolsPath = Join-Path $PSScriptRoot "tools"
     if (Test-Path $toolsPath) {
         $tools = Get-ChildItem -Path $toolsPath -Directory
-        Write-Host "`nAvailable Tools:" -ForegroundColor Cyan
+        Write-Host "Available Tools:" -ForegroundColor Cyan
         Write-Host "----------------"
         foreach ($tool in $tools) {
             Write-Host "[TOOL] $($tool.Name)" -ForegroundColor Yellow
         }
-        Write-Host "`nUse 'shambles [tool]' to navigate to a tool" -ForegroundColor Gray
+        Write-Host "Use 'shambles [tool]' to navigate to a tool" -ForegroundColor Gray
         Write-Host "Use 'room' to return to main directory" -ForegroundColor Gray
     }
     else {
@@ -36,27 +35,7 @@ function global:takt {
     }
 }
 
-# Create tools directory if it doesn't exist
-$toolsDir = Join-Path $PSScriptRoot "tools"
-if (-not (Test-Path $toolsDir)) {
-    New-Item -ItemType Directory -Path $toolsDir | Out-Null
-}
-
-# Move satellite to tools directory
-$satelliteDir = Join-Path $toolsDir "satellite"
-if (-not (Test-Path $satelliteDir)) {
-    New-Item -ItemType Directory -Path $satelliteDir | Out-Null
-}
-
-# Move satellite files
-$satelliteFiles = @("satellite.ps1", "fuel.ps1", "panels.csv")
-foreach ($file in $satelliteFiles) {
-    if (Test-Path $file) {
-        Move-Item -Path $file -Destination $satelliteDir -Force
-    }
-}
-
-Write-Host "`nDvincis MS Toolbox initialized!" -ForegroundColor Green
+Write-Host "Dvincis MS Toolbox navigation loaded!" -ForegroundColor Green
 Write-Host "Use 'takt' to see available tools" -ForegroundColor Cyan
 Write-Host "Use 'shambles [tool]' to navigate to a tool" -ForegroundColor Cyan
 Write-Host "Use 'room' to return to main directory" -ForegroundColor Cyan 
