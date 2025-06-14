@@ -2,15 +2,11 @@
 # This script collects detailed network, system, software, and printer information
 # and generates a comprehensive HTML report with clear section ordering.
 
-# =============================================
-# ADMIN RIGHTS CHECK
-# =============================================
-$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-if (-not $isAdmin) {
-    Write-Host "This script requires Administrator privileges. Please run PowerShell as Administrator."
-    Write-Host "Right-click on PowerShell and select 'Run as Administrator'"
-    exit 1
-}
+# Import required functions from fuel.ps1
+. .\fuel.ps1
+
+# Initialize environment
+Initialize-Environment
 
 # =============================================
 # FILE/OUTPUT SETTINGS
@@ -253,11 +249,7 @@ $html = @"
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-    <h1>🛰️ Sattelite Report 🛰️</h1>
-=======
     <h1>System and Network Audit</h1>
->>>>>>> 291d080b52d6c7d0052cac930447d09afc2ac67b
     $($global:report -join "<hr>")
 </body>
 </html>
