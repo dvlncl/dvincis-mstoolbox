@@ -34,7 +34,16 @@ A comprehensive system and network audit tool that collects detailed information
 [View Satellite Documentation](tools/satellite/README.md)
 
 ### 🛰️ Orbital Inspector
-A specialized tool for advanced system or network inspection.
+A PowerShell tool for domain reconnaissance and inspection. Orbital Inspector gathers a wide range of information about a target domain, including:
+- WHOIS lookup (requires `whois.exe`)
+- DNS record inspection (A, CNAME, MX, TXT, NS)
+- SPF, DKIM, and DMARC record checks
+- SSL certificate information (subject, issuer, validity, thumbprint)
+- HTTP header retrieval
+- Technology detection via server headers
+- Subdomain enumeration using crt.sh
+- Common port scan (21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 3389)
+- Website preview (opens in browser)
 
 [View Orbital Inspector Documentation](tools/orbitalInspector/README.md)
 
@@ -49,7 +58,7 @@ Each tool in the toolbox consists of two main components:
    - Sets up execution environment
    - Must be present for tool functionality
 
-2. Tool-specific script (e.g., `satellite.ps1`)
+2. Tool-specific script (e.g., `satellite.ps1`, `orbital-inspector`)
    - Depends on fuel.ps1 for core functionality
    - Performs specific tool operations
    - Generates reports and outputs
@@ -71,6 +80,9 @@ Each tool in the toolbox consists of two main components:
   - DNS settings
   - Network security
   - Dynamic network testing using panels.csv
+
+- Domain Reconnaissance & Inspection (Orbital Inspector)
+  - WHOIS, DNS, SSL, email authentication, subdomains, ports, and more
 
 - Report Generation
   - HTML-based reports
@@ -131,6 +143,11 @@ The script will:
 3. Execute system and network analysis
 4. Generate an HTML report on your desktop named "System_Network_Audit_Report.html"
 
+For Orbital Inspector:
+```powershell
+.\orbital-inspector -Domain example.com
+```
+
 ## Scripts
 
 - `fuel.ps1`: Core module that provides:
@@ -144,6 +161,10 @@ The script will:
   - Performs system analysis
   - Conducts network analysis
   - Generates HTML reports
+
+- `orbital-inspector`: Domain reconnaissance script that:
+  - Performs WHOIS, DNS, SSL, HTTP, subdomain, and port checks
+  - Summarizes domain security and configuration
 
 ## Base64 Encoded Versions
 
